@@ -4,3 +4,7 @@
 4) click on unpack
 5) upload this entire folder
 6) run the extension
+
+
+Created by Maanas Tyagi - www.linkedin.com/in/maanas-tyagi-1b955b23b
+
