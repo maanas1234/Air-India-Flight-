@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { 
+      width: 320px; 
+      padding: 20px; 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      margin: 0;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .header h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    
+    .toggle-section {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 15px;
+      margin: 15px 0;
+    }
+    
+    .toggle { 
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .toggle label {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    
+    .toggle input[type="checkbox"] {
+      margin-right: 10px;
+      transform: scale(1.2);
+    }
+    
+    .status { 
+      font-weight: bold;
+      text-align: center;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+      background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .status.active { 
+      background: rgba(76, 175, 80, 0.3);
+      border: 1px solid #4CAF50;
+    }
+    
+    .status.disabled { 
+      background: rgba(244, 67, 54, 0.3);
+      border: 1px solid #f44336;
+    }
+    
+    .filter-list {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 15px;
+      margin: 15px 0;
+    }
+    
+    .filter-list h4 {
+      margin: 0 0 10px 0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    
+    .filter-list ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    
+    .filter-list li {
+      margin: 5px 0;
+      font-size: 13px;
+    }
+    
+    .stats {
+      text-align: center;
+      font-size: 12px;
+      opacity: 0.8;
+      margin-top: 15px;
+    }
+    
+    .refresh-btn {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+      margin-top: 10px;
+      width: 100%;
+    }
+    
+    .refresh-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h3>✈️ Flight Filter</h3>
+  </div>
+  
+  <div class="toggle-section">
+    <div class="toggle">
+      <label>
+        <input type="checkbox" id="enableFilter" checked>
+        Enable Flight Filtering
+      </label>
+    </div>
+    
+    <div class="toggle">
+      <label>
+        <input type="checkbox" id="blockAirIndia" checked>
+        Block Air India Flights
+      </label>
+    </div>
+    
+    <div class="toggle">
+      <label>
+        <input type="checkbox" id="blockBoeing737" checked>
+        Block Boeing 737 Aircraft
+      </label>
+    </div>
+  </div>
+  
+  <div class="status active" id="status">Active</div>
+  
+  <div class="filter-list">
+    <h4>Currently Filtering:</h4>
+    <ul id="filterList">
+      <li>Air India flights</li>
+      <li>Boeing 737 aircraft</li>
+    </ul>
+  </div>
+  
+  <div class="stats" id="stats">
+    Flights filtered this session: <span id="filteredCount">0</span>
+  </div>
+  
+  <button class="refresh-btn" id="refreshBtn">Refresh Current Page</button>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

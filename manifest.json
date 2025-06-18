@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "Flight Filter Extension",
+  "version": "1.0",
+  "description": "Removes Air India flights and Boeing 737 aircraft from flight search results",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "*://*.google.com/*",
+    "*://*.kayak.com/*",
+    "*://*.expedia.com/*",
+    "*://*.makemytrip.com/*",
+    "*://*.cleartrip.com/*",
+    "*://*.skyscanner.com/*",
+    "*://*.booking.com/*",
+    "*://*.momondo.com/*",
+    "*://*.goibibo.com/*",
+    "*://*.yatra.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.google.com/*",
+        "*://*.kayak.com/*",
+        "*://*.expedia.com/*",
+        "*://*.makemytrip.com/*",
+        "*://*.cleartrip.com/*",
+        "*://*.skyscanner.com/*",
+        "*://*.booking.com/*",
+        "*://*.momondo.com/*",
+        "*://*.goibibo.com/*",
+        "*://*.yatra.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Flight Filter"
+  }
+}
